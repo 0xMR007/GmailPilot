@@ -1,0 +1,733 @@
+text,label
+"[NAME] liked your post about cybersecurity trends",0
+"[NAME] a aimé votre publication sur la sécurité",0
+"Your connection [NAME] started following [COMPANY]",0
+"Votre contact [NAME] suit maintenant [ENTREPRISE]",0
+"[NAME] endorsed you for Python programming",0
+"[NAME] vous a recommandé pour Python",0
+"Weekly network digest: 5 new updates",0
+"Résumé hebdomadaire réseau : 5 mises à jour",0
+"[NAME] shared an article about AI ethics",0
+"[NAME] a partagé un article sur l'éthique IA",0
+"[NAME] commented on your LinkedIn article",0
+"[NAME] a commenté votre article LinkedIn",0
+"Your post received 47 likes and 8 comments",0
+"Votre publication a reçu 47 likes et 8 commentaires",0
+"[NAME] mentioned you in a professional discussion",0
+"[NAME] vous a mentionné dans une discussion professionnelle",0
+"New connection request from [NAME] at [COMPANY]",0
+"Nouvelle demande de connexion de [NAME] chez [ENTREPRISE]",0
+"Your network has grown by 12% this month",0
+"Votre réseau a augmenté de 12% ce mois-ci",0
+"💼 Premium features: See who viewed your profile",1
+"💼 Fonctionnalités premium : Voyez qui consulte votre profil",1
+"🚀 Career boost: Get noticed by recruiters",1
+"🚀 Boostez votre carrière : Attirez les recruteurs",1
+"✨ Unlock networking superpowers with Premium",1
+"✨ Débloquez le pouvoir du réseau avec Premium",1
+"💎 Exclusive job opportunities for Premium members",1
+"💎 Opportunités d'emploi exclusives membres Premium",1
+"🎯 Target your next role with advanced search",1
+"🎯 Ciblez votre prochain poste avec la recherche avancée",1
+"🌟 Stand out with Premium badge on your profile",1
+"🌟 Démarquez-vous avec le badge Premium sur votre profil",1
+"📈 Analytics: Track your profile performance",1
+"📈 Analyses : Suivez les performances de votre profil",1
+"🔍 Advanced search filters for better networking",1
+"🔍 Filtres de recherche avancés pour un meilleur réseautage",1
+"💬 Unlimited InMails to reach anyone",1
+"💬 InMails illimités pour contacter qui vous voulez",1
+"Assignment due tomorrow for Data Science course",0
+"Devoir à rendre demain pour le cours Data Science",0
+"Quiz available: Machine Learning Week 3",0
+"Quiz disponible : Machine Learning Semaine 3",0
+"Certificate earned: Google IT Support",0
+"Certificat obtenu : Support IT Google",0
+"Course materials updated for Neural Networks",0
+"Supports de cours mis à jour pour Réseaux de Neurones",0
+"Peer review required for your project submission",0
+"Évaluation par les pairs requise pour votre projet",0
+"Lecture recording available for yesterday's session",0
+"Enregistrement de cours disponible pour la session d'hier",0
+"Final exam scheduled for next Friday at 2 PM",0
+"Examen final programmé vendredi prochain à 14h",0
+"New discussion thread started in Advanced Python",0
+"Nouveau fil de discussion créé dans Python Avancé",0
+"Your assignment received grade: A- with feedback",0
+"Votre devoir a reçu la note : A- avec commentaires",0
+"Group project teams have been assigned",0
+"Les équipes de projet de groupe ont été attribuées",0
+"📚 Explore new courses in your field",1
+"📚 Explorez de nouveaux cours dans votre domaine",1
+"🎓 Limited time: 7-day free trial",1
+"🎓 Offre limitée : 7 jours d'essai gratuit",1
+"⭐ Plus courses unlock with subscription",1
+"⭐ Plus de cours débloqués avec l'abonnement",1
+"🏆 Level up your skills with certificates",1
+"🏆 Développez vos compétences avec des certificats",1
+"📈 Career advancement courses starting at $49",1
+"📈 Cours d'évolution de carrière dès 49€",1
+"🚀 Master new technologies before everyone else",1
+"🚀 Maîtrisez les nouvelles technologies avant tout le monde",1
+"🎯 Personalized learning path for your goals",1
+"🎯 Parcours d'apprentissage personnalisé pour vos objectifs",1
+"💼 Corporate training solutions available",1
+"💼 Solutions de formation entreprise disponibles",1
+"🏅 Earn verified certificates from top universities",1
+"🏅 Obtenez des certificats vérifiés d'universités prestigieuses",1
+"Account balance: €1,247.83 as of today",0
+"Solde du compte : 1 247,83€ à ce jour",0
+"Direct debit processed: Netflix €12.99",0
+"Prélèvement traité : Netflix 12,99€",0
+"Standing order cancelled successfully",0
+"Virement permanent annulé avec succès",0
+"Card payment declined: insufficient funds",0
+"Paiement carte refusé : fonds insuffisants",0
+"International transfer completed to UK",0
+"Virement international vers le Royaume-Uni effectué",0
+"Monthly statement now available for download",0
+"Relevé mensuel maintenant disponible en téléchargement",0
+"ATM withdrawal: €80 from Main Street location",0
+"Retrait DAB : 80€ depuis l'agence Main Street",0
+"Interest payment credited: €45.67",0
+"Paiement d'intérêts crédité : 45,67€",0
+"Fraud alert: Suspicious transaction blocked",0
+"Alerte fraude : Transaction suspecte bloquée",0
+"Credit limit increase approved: €500",0
+"Augmentation limite de crédit approuvée : 500€",0
+"💳 Get our premium card with exclusive benefits",1
+"💳 Obtenez notre carte premium avec avantages exclusifs",1
+"🏦 Personal loan approved in 24 hours",1
+"🏦 Prêt personnel approuvé en 24h",1
+"📈 Invest smart: Portfolio management from €100",1
+"📈 Investissez malin : Gestion de portefeuille dès 100€",1
+"💰 High-yield savings: 3.5% annual rate",1
+"💰 Épargne haut rendement : 3,5% annuel",1
+"🎯 Mortgage rates starting at 2.8%",1
+"🎯 Taux hypothécaires dès 2,8%",1
+"🌟 VIP banking: Dedicated personal advisor",1
+"🌟 Banque VIP : Conseiller personnel dédié",1
+"💎 Wealth management for high net worth clients",1
+"💎 Gestion de patrimoine pour clients fortunés",1
+"🔒 Advanced security features with premium account",1
+"🔒 Fonctionnalités de sécurité avancées avec compte premium",1
+"📊 Free financial planning consultation",1
+"📊 Consultation gratuite en planification financière",1
+"Game saved successfully to cloud",0
+"Partie sauvegardée avec succès sur le cloud",0
+"Friend request from [PLAYER] accepted",0
+"Demande d'ami de [JOUEUR] acceptée",0
+"Achievement unlocked: First Victory",0
+"Succès débloqué : Première Victoire",0
+"Server maintenance scheduled for 2 hours",0
+"Maintenance serveur programmée 2 heures",0
+"Match found: Joining lobby in 10 seconds",0
+"Match trouvé : Rejoindre le lobby dans 10s",0
+"Daily login bonus: 500 gold coins",0
+"Bonus de connexion quotidienne : 500 pièces d'or",0
+"Tournament brackets updated for Round 2",0
+"Tableaux de tournoi mis à jour pour le Tour 2",0
+"Guild invitation received from [GUILD_NAME]",0
+"Invitation de guilde reçue de [NOM_GUILDE]",0
+"New update available: Version 2.4.1",0
+"Nouvelle mise à jour disponible : Version 2.4.1",0
+"Leaderboard position: Rank 247 globally",0
+"Position classement : Rang 247 mondial",0
+"🎮 New battle pass available now",1
+"🎮 Nouveau passe de combat disponible",1
+"🔥 Legendary skin: Limited time only",1
+"🔥 Skin légendaire : Temps limité uniquement",1
+"⚡ XP boost weekend: Double rewards",1
+"⚡ Weekend boost XP : Récompenses doublées",1
+"💎 Premium currency: 50% bonus this week",1
+"💎 Monnaie premium : Bonus 50% cette semaine",1
+"🏆 Tournament entry: Win exclusive prizes",1
+"🏆 Inscription tournoi : Gagnez des prix exclusifs",1
+"🎯 Pro gamer package: Advanced stats & replays",1
+"🎯 Pack joueur pro : Stats avancées et replays",1
+"🌟 VIP membership: Skip queues and get priority",1
+"🌟 Adhésion VIP : Évitez les files et obtenez la priorité",1
+"💰 Earn real money in tournaments",1
+"💰 Gagnez de l'argent réel dans les tournois",1
+"🎪 Special event: Halloween themed rewards",1
+"🎪 Événement spécial : Récompenses sur le thème Halloween",1
+"Order #78456 shipped via DHL Express",0
+"Commande #78456 expédiée via DHL Express",0
+"Return approved: Refund within 5-7 days",0
+"Retour approuvé : Remboursement sous 5-7 jours",0
+"Delivery attempt failed: Reschedule online",0
+"Tentative de livraison échouée : Reprogrammez en ligne",0
+"Product review request for recent purchase",0
+"Demande d'avis produit pour achat récent",0
+"Warranty registration completed successfully",0
+"Enregistrement garantie effectué avec succès",0
+"Package delivered and left at front door",0
+"Colis livré et laissé devant la porte d'entrée",0
+"Tracking updated: Package in transit",0
+"Suivi mis à jour : Colis en transit",0
+"Exchange request processed for order #12345",0
+"Demande d'échange traitée pour commande #12345",0
+"Customer service: Your ticket #789 is resolved",0
+"Service client : Votre ticket #789 est résolu",0
+"Stock replenishment: Item back in inventory",0
+"Réapprovisionnement : Article de nouveau en stock",0
+"🛍️ Items in your cart are selling fast",1
+"🛍️ Articles dans votre panier partent vite",1
+"⏰ Only 2 left in stock: Complete your order",1
+"⏰ Plus que 2 en stock : Finalisez votre commande",1
+"💝 Personalized recommendations just for you",1
+"💝 Recommandations personnalisées juste pour vous",1
+"🚨 Price drop alert: Your wishlist item is 30% off",1
+"🚨 Alerte baisse prix : Article wishlist -30%",1
+"📦 Free shipping on orders over €50",1
+"📦 Livraison gratuite dès 50€ d'achat",1
+"🎁 Black Friday mega sale: Up to 70% off",1
+"🎁 Méga soldes Black Friday : Jusqu'à -70%",1
+"⭐ Customer favorites: Most popular items",1
+"⭐ Favoris clients : Articles les plus populaires",1
+"🚀 New arrivals: Fresh styles just in",1
+"🚀 Nouveautés : Styles frais qui viennent d'arriver",1
+"💰 Cashback offer: 5% on all purchases",1
+"💰 Offre cashback : 5% sur tous les achats",1
+"Download completed: Episode 5 of [SERIES]",0
+"Téléchargement terminé : Épisode 5 de [SÉRIE]",0
+"Playback resumed where you left off",0
+"Lecture reprise là où vous vous êtes arrêté",0
+"Parental controls updated successfully",0
+"Contrôle parental mis à jour avec succès",0
+"Account shared with [EMAIL] successfully",0
+"Compte partagé avec [EMAIL] avec succès",0
+"Subtitle language changed to French",0
+"Langue sous-titres changée en français",0
+"Watch party started with [FRIEND_NAME]",0
+"Soirée visionnage commencée avec [NOM_AMI]",0
+"Download for offline viewing completed",0
+"Téléchargement pour visionnage hors ligne terminé",0
+"Viewing history cleared successfully",0
+"Historique de visionnage effacé avec succès",0
+"Quality automatically adjusted to HD",0
+"Qualité automatiquement ajustée en HD",0
+"🎬 New releases this week: Don't miss out",1
+"🎬 Nouveautés cette semaine : Ne ratez pas",1
+"🍿 Trending now: What everyone's watching",1
+"🍿 Tendances actuelles : Ce que tout le monde regarde",1
+"⭐ Exclusive content: Subscriber only",1
+"⭐ Contenu exclusif : Abonnés uniquement",1
+"📺 Binge-worthy series added today",1
+"📺 Séries addictives ajoutées aujourd'hui",1
+"🎭 Premium channels: Upgrade your plan",1
+"🎭 Chaînes premium : Mettez à niveau votre forfait",1
+"🎥 4K content available with premium subscription",1
+"🎥 Contenu 4K disponible avec abonnement premium",1
+"🔥 Limited series: Watch before it's gone",1
+"🔥 Série limitée : Regardez avant qu'elle disparaisse",1
+"🌟 Ad-free experience: Upgrade now",1
+"🌟 Expérience sans pub : Mettez à niveau maintenant",1
+"Security code for account verification: 487291",0
+"Code de sécurité pour vérification compte : 487291",0
+"Two-factor authentication setup completed",0
+"Configuration authentification deux facteurs terminée",0
+"Suspicious login attempt blocked automatically",0
+"Tentative de connexion suspecte bloquée automatiquement",0
+"Password strength updated to strong",0
+"Force du mot de passe mise à jour vers fort",0
+"Recovery email address verified successfully",0
+"Adresse email de récupération vérifiée avec succès",0
+"Device authorization required for new login",0
+"Autorisation appareil requise pour nouvelle connexion",0
+"Security question answers updated",0
+"Réponses questions de sécurité mises à jour",0
+"Account locked due to multiple failed attempts",0
+"Compte verrouillé suite à plusieurs tentatives échouées",0
+"Biometric authentication enabled successfully",0
+"Authentification biométrique activée avec succès",0
+"Session expired: Please log in again",0
+"Session expirée : Veuillez vous reconnecter",0
+"Login from new device: Location verification sent",0
+"Connexion depuis nouvel appareil : Vérification localisation envoyée",0
+"VPN usage detected: Account security review",0
+"Utilisation VPN détectée : Révision sécurité compte",0
+"🔐 Premium security suite: Advanced protection",1
+"🔐 Suite sécurité premium : Protection avancée",1
+"🛡️ Identity theft protection: Monitor your data",1
+"🛡️ Protection vol d'identité : Surveillez vos données",1
+"🚨 Dark web monitoring: We scan for your info",1
+"🚨 Surveillance dark web : On scanne vos infos",1
+"⚡ Real-time threat alerts: Stay protected",1
+"⚡ Alertes menaces temps réel : Restez protégé",1
+"🔒 Enterprise-grade encryption for personal use",1
+"🔒 Chiffrement niveau entreprise pour usage personnel",1
+"Tax assessment notice for fiscal year 2024",0
+"Avis d'imposition pour l'année fiscale 2024",0
+"Driving license renewal reminder: Expires 30/09",0
+"Rappel renouvellement permis : Expire le 30/09",0
+"Unemployment benefits payment processed",0
+"Versement allocation chômage traité",0
+"Social security number update confirmed",0
+"Mise à jour numéro sécurité sociale confirmée",0
+"Voter registration status: Active",0
+"Statut inscription électorale : Actif",0
+"Property tax bill available for download",0
+"Facture taxe foncière disponible en téléchargement",0
+"Pension contribution statement ready",0
+"Relevé cotisations retraite prêt",0
+"Healthcare card replacement issued",0
+"Remplacement carte vitale émis",0
+"Court summons: Appear on 15/07 at 14:00",0
+"Convocation tribunal : Comparaître le 15/07 à 14h",0
+"Municipal services: Water bill due 25/06",0
+"Services municipaux : Facture eau due le 25/06",0
+"Passport renewal application received",0
+"Demande renouvellement passeport reçue",0
+"Building permit approved for construction",0
+"Permis de construire approuvé pour construction",0
+"🏛️ Fast-track government services with premium",1
+"🏛️ Services gouvernementaux accélérés avec premium",1
+"📋 Professional document preparation service",1
+"📋 Service professionnel de préparation documents",1
+"⚡ Express visa processing: Get it in 24h",1
+"⚡ Traitement visa express : Obtenez-le en 24h",1
+"🎯 Tax optimization consultation available",1
+"🎯 Consultation optimisation fiscale disponible",1
+"📊 Legal advice: Connect with certified lawyers",1
+"📊 Conseil juridique : Connectez-vous avec avocats certifiés",1
+"Blood test results normal: No action required",0
+"Résultats prise de sang normaux : Aucune action requise",0
+"Prescription ready for collection at pharmacy",0
+"Ordonnance prête à retirer en pharmacie",0
+"Vaccination certificate updated in health record",0
+"Certificat vaccination mis à jour dossier santé",0
+"Insurance claim approved: €89.50 reimbursed",0
+"Remboursement approuvé : 89,50€ remboursés",0
+"Specialist referral sent to cardiology",0
+"Référence spécialiste envoyée en cardiologie",0
+"Medical imaging appointment confirmed",0
+"Rendez-vous imagerie médicale confirmé",0
+"Annual health checkup reminder",0
+"Rappel bilan de santé annuel",0
+"Chronic medication delivery scheduled",0
+"Livraison médicament chronique programmée",0
+"Mental health consultation available",0
+"Consultation santé mentale disponible",0
+"Emergency contact information updated",0
+"Informations contact urgence mises à jour",0
+"Medical test results available in patient portal",0
+"Résultats tests médicaux disponibles portail patient",0
+"Flu vaccination campaign starts next week",0
+"Campagne vaccination grippe commence semaine prochaine",0
+"🏥 Premium health plans: Comprehensive coverage",1
+"🏥 Plans santé premium : Couverture complète",1
+"💊 Online pharmacy: 24/7 prescription delivery",1
+"💊 Pharmacie en ligne : Livraison ordonnances 24h/7j",1
+"🩺 Telemedicine consultations: Skip the waiting room",1
+"🩺 Consultations télémédecine : Évitez la salle d'attente",1
+"🧬 Genetic testing: Unlock your health insights",1
+"🧬 Tests génétiques : Découvrez vos insights santé",1
+"💪 Wellness programs: Achieve your health goals",1
+"💪 Programmes bien-être : Atteignez vos objectifs santé",1
+"Payroll processed: Net pay €2,847.32",0
+"Paie traitée : Salaire net 2 847,32€",0
+"Annual leave request approved: 10-20 August",0
+"Demande congés approuvée : 10-20 août",0
+"Expense report submitted successfully",0
+"Note de frais soumise avec succès",0
+"Performance review scheduled for next week",0
+"Entretien d'évaluation programmé semaine prochaine",0
+"IT support ticket #2847 resolved",0
+"Ticket support IT #2847 résolu",0
+"Workplace safety training mandatory",0
+"Formation sécurité au travail obligatoire",0
+"Overtime hours recorded: 8.5 this week",0
+"Heures supplémentaires enregistrées : 8,5 cette semaine",0
+"Company policy update: Review required",0
+"Mise à jour politique entreprise : Révision requise",0
+"Team meeting rescheduled to Thursday 15:00",0
+"Réunion équipe reportée jeudi 15h",0
+"Workplace benefits enrollment period open",0
+"Période d'inscription avantages sociaux ouverte",0
+"New employee onboarding session scheduled",0
+"Session d'intégration nouvel employé programmée",0
+"Promotion effective from next month",0
+"Promotion effective à partir du mois prochain",0
+"💼 Career development programs: Advance faster",1
+"💼 Programmes développement carrière : Progressez plus vite",1
+"🎯 Leadership training: Unlock your potential",1
+"🎯 Formation leadership : Libérez votre potentiel",1
+"📈 Salary negotiation coaching: Get what you deserve",1
+"📈 Coaching négociation salaire : Obtenez ce que vous méritez",1
+"🌟 Executive coaching: Transform your career",1
+"🌟 Coaching exécutif : Transformez votre carrière",1
+"📚 Professional certifications: Boost your value",1
+"📚 Certifications professionnelles : Augmentez votre valeur",1
+"Smart contract execution successful",0
+"Exécution contrat intelligent réussie",0
+"Wallet address verification completed",0
+"Vérification adresse portefeuille terminée",0
+"Transaction confirmed on blockchain",0
+"Transaction confirmée sur blockchain",0
+"Mining rewards distributed automatically",0
+"Récompenses minage distribuées automatiquement",0
+"NFT transfer completed successfully",0
+"Transfert NFT terminé avec succès",0
+"Staking rewards earned: 0.045 ETH",0
+"Récompenses staking gagnées : 0,045 ETH",0
+"Gas fees optimized for transaction",0
+"Frais gas optimisés pour transaction",0
+"DeFi liquidity pool yield: 12.3% APY",0
+"Rendement pool liquidité DeFi : 12,3% APY",0
+"🚀 New DeFi opportunities: High yield pools",1
+"🚀 Nouvelles opportunités DeFi : Pools haut rendement",1
+"💰 Crypto savings account: Earn while you HODL",1
+"💰 Compte épargne crypto : Gagnez pendant que vous HODL",1
+"⚡ Lightning-fast trading: Zero slippage guaranteed",1
+"⚡ Trading ultra-rapide : Zéro slippage garanti",1
+"🔮 AI-powered portfolio management",1
+"🔮 Gestion portefeuille alimentée par IA",1
+"💎 Exclusive access to private token sales",1
+"💎 Accès exclusif aux ventes privées de tokens",1
+"CI/CD pipeline completed successfully",0
+"Pipeline CI/CD terminé avec succès",0
+"Container deployment status: Running",0
+"Statut déploiement conteneur : En cours",0
+"API rate limit reset in 15 minutes",0
+"Limite taux API réinitialisée dans 15 minutes",0
+"Kubernetes cluster scaling completed",0
+"Mise à l'échelle cluster Kubernetes terminée",0
+"Database backup completed at 03:00",0
+"Sauvegarde base de données terminée à 03h00",0
+"SSL certificate auto-renewed",0
+"Certificat SSL auto-renouvelé",0
+"Load balancer health check passed",0
+"Vérification santé répartiteur charge réussie",0
+"Monitoring alert: CPU usage high",0
+"Alerte monitoring : Utilisation CPU élevée",0
+"Security scan completed: No vulnerabilities",0
+"Scan sécurité terminé : Aucune vulnérabilité",0
+"Code review assigned to senior developer",0
+"Révision code assignée au développeur senior",0
+"💡 DevOps tools: Streamline your workflow",1
+"💡 Outils DevOps : Optimisez votre flux de travail",1
+"🚀 Cloud migration services: Seamless transition",1
+"🚀 Services migration cloud : Transition transparente",1
+"⚡ Performance optimization: 10x faster deploys",1
+"⚡ Optimisation performance : Déploiements 10x plus rapides",1
+"🔧 Professional consulting: Architecture review",1
+"🔧 Conseil professionnel : Révision architecture",1
+"📊 Advanced monitoring: Real-time insights",1
+"📊 Monitoring avancé : Insights temps réel",1
+"System maintenance window: Services unavailable 2AM-4AM",0
+"Fenêtre maintenance système : Services indisponibles 2h-4h",0
+"Data backup completed successfully at 03:15",0
+"Sauvegarde données terminée avec succès à 03h15",0
+"Server capacity upgraded: Improved performance",0
+"Capacité serveur améliorée : Performances optimisées",0
+"Network connectivity restored after outage",0
+"Connectivité réseau rétablie après panne",0
+"Database synchronization in progress",0
+"Synchronisation base de données en cours",0
+"Software update installed: Version 3.2.1",0
+"Mise à jour logiciel installée : Version 3.2.1",0
+"Cache cleared: Application should run faster",0
+"Cache vidé : Application devrait être plus rapide",0
+"Firewall rules updated for enhanced security",0
+"Règles pare-feu mises à jour pour sécurité renforcée",0
+"SSL certificate renewed automatically",0
+"Certificat SSL renouvelé automatiquement",0
+"Load balancer optimization completed",0
+"Optimisation répartiteur de charge terminée",0
+"Weekly summary: Your activity this week",0
+"Résumé hebdomadaire : Votre activité cette semaine",0
+"Monthly report: March 2024 statistics",0
+"Rapport mensuel : Statistiques mars 2024",0
+"Quarterly review: Q1 2024 performance",0
+"Bilan trimestriel : Performance T1 2024",0
+"Annual statement: Year-end summary",0
+"Relevé annuel : Résumé de fin d'année",0
+"Daily backup completed at 02:30",0
+"Sauvegarde quotidienne terminée à 02h30",0
+"Usage analytics: 1,247 active users today",0
+"Analyses utilisation : 1 247 utilisateurs actifs aujourd'hui",0
+"Revenue report: €45,389 this quarter",0
+"Rapport revenus : 45 389€ ce trimestre",0
+"Customer satisfaction score: 4.7/5",0
+"Score satisfaction client : 4,7/5",0
+"Traffic spike detected: 150% above normal",0
+"Pic de trafic détecté : 150% au-dessus de la normale",0
+"Error rate decreased to 0.1% this week",0
+"Taux d'erreur diminué à 0,1% cette semaine",0
+"Payment failed",0
+"Paiement échoué",0
+"Login successful",0
+"Connexion réussie",0
+"Logout completed",0
+"Déconnexion terminée",0
+"Password reset email sent",0
+"Email de réinitialisation mot de passe envoyé",0
+"Profile updated successfully",0
+"Profil mis à jour avec succès",0
+"Notification settings changed",0
+"Paramètres notifications modifiés",0
+"Language preference set to French",0
+"Préférence langue définie en français",0
+"Theme switched to dark mode",0
+"Thème basculé en mode sombre",0
+"Data export request processed",0
+"Demande d'export de données traitée",0
+"Account deletion scheduled in 7 days",0
+"Suppression compte programmée dans 7 jours",0
+"🔥 Sale!",1
+"🔥 Soldes !",1
+"💥 Flash sale: 2 hours only",1
+"💥 Vente flash : 2 heures seulement",1
+"🎯 Special offer just for you",1
+"🎯 Offre spéciale juste pour vous",1
+"⚡ Lightning deal: Act fast",1
+"⚡ Offre éclair : Agissez vite",1
+"🎁 Surprise bonus: Check your rewards",1
+"🎁 Bonus surprise : Vérifiez vos récompenses",1
+"Your order has been processed successfully",0
+"Votre commande a été traitée avec succès",0
+"🎉 Don't miss our weekend special offers",1
+"🎉 Ne ratez pas nos offres spéciales weekend",1
+"Your monthly subscription payment of €29.99 has been processed successfully and your account remains active until the next billing cycle on April 15th, 2024",0
+"Votre paiement d'abonnement mensuel de 29,99€ a été traité avec succès et votre compte reste actif jusqu'au prochain cycle de facturation le 15 avril 2024",0
+"Transaction completed. Discover our new premium features!",1
+"Transaction terminée. Découvrez nos nouvelles fonctionnalités premium !",1
+"Service restored. Upgrade now for 99% uptime guarantee!",1
+"Service rétabli. Mettez à niveau maintenant pour garantie 99% disponibilité !",1
+"Password updated successfully. Get Premium for advanced security!",1
+"Mot de passe mis à jour. Obtenez Premium pour sécurité avancée !",1
+"Urgent: Complete your profile to unlock exclusive deals",1
+"Urgent : Complétez votre profil pour débloquer offres exclusives",1
+"Action required: Claim your welcome bonus now",1
+"Action requise : Réclamez votre bonus de bienvenue maintenant",1
+"Time-sensitive: Your personalized offer expires tonight",1
+"Urgent : Votre offre personnalisée expire ce soir",1
+"Limited availability: Premium spots filling fast",1
+"Disponibilité limitée : Places premium se remplissent vite",1
+"Exclusive member preview: New collection launching",1
+"Aperçu exclusif membre : Nouvelle collection bientôt",1
+"Early access granted: Shop before general release",1
+"Accès anticipé accordé : Achetez avant sortie générale",1
+"Your personal trainer recommends this workout plan",1
+"Votre entraîneur personnel recommande ce plan d'entraînement",1
+"Nutrition expert suggests these meal options",1
+"Expert nutrition suggère ces options de repas",1
+"Weather forecast: Perfect day for outdoor activities",0
+"Prévisions météo : Jour parfait pour activités extérieures",0
+"Traffic update: Alternate route suggested",0
+"Mise à jour trafic : Itinéraire alternatif suggéré",0
+"News alert: Breaking story in technology sector",0
+"Alerte info : Histoire de dernière minute secteur technologie",0
+"Calendar reminder: Doctor appointment in 2 hours",0
+"Rappel calendrier : Rendez-vous médecin dans 2 heures",0
+"Battery low: 15% remaining, consider charging",0
+"Batterie faible : 15% restant, pensez à charger",0
+"Software update available for your device",0
+"Mise à jour logiciel disponible pour votre appareil",0
+"WiFi network 'HomeNetwork' connected successfully",0
+"Réseau WiFi 'RéseauMaison' connecté avec succès",0
+"Bluetooth device 'Headphones' paired",0
+"Appareil Bluetooth 'Casque' appairé",0
+"Storage space: 85% full, cleanup recommended",0
+"Espace stockage : 85% plein, nettoyage recommandé",0
+"App crash report sent to developer",0
+"Rapport crash app envoyé au développeur",0
+"🎨 Customize your experience with premium themes",1
+"🎨 Personnalisez votre expérience avec thèmes premium",1
+"🚗 Smart navigation: Avoid traffic with AI routing",1
+"🚗 Navigation intelligente : Évitez trafic avec routage IA",1
+"🏠 Home automation: Control everything remotely",1
+"🏠 Domotique : Contrôlez tout à distance",1
+"📱 App suite: All your tools in one package",1
+"📱 Suite d'apps : Tous vos outils en un pack",1
+"⚡ Supercharge your productivity with premium",1
+"⚡ Boostez votre productivité avec premium",1
+"Market analysis completed for Q2 2024",0
+"Analyse marché terminée pour T2 2024",0
+"Competitor pricing updated in dashboard",0
+"Prix concurrents mis à jour dans tableau de bord",0
+"Industry trends report published",0
+"Rapport tendances industrie publié",0
+"Customer feedback survey results ready",0
+"Résultats enquête retours clients prêts",0
+"Product roadmap updated with new features",0
+"Feuille de route produit mise à jour nouvelles fonctionnalités",0
+"Quality assurance testing cycle completed",0
+"Cycle test assurance qualité terminé",0
+"User acceptance testing scheduled",0
+"Tests acceptation utilisateur programmés",0
+"Beta version released to limited users",0
+"Version bêta publiée pour utilisateurs limités",0
+"Bug report #1247 assigned to development team",0
+"Rapport bug #1247 assigné équipe développement",0
+"Feature request approved for implementation",0
+"Demande fonctionnalité approuvée pour implémentation",0
+"📊 Business intelligence: Data-driven decisions",1
+"📊 Intelligence d'affaires : Décisions basées données",1
+"🎯 Market research: Know your competition",1
+"🎯 Étude marché : Connaissez votre concurrence",1
+"💡 Innovation lab: Transform your business",1
+"💡 Labo innovation : Transformez votre entreprise",1
+"🚀 Growth hacking: Scale faster than ever",1
+"🚀 Growth hacking : Grandissez plus vite que jamais",1
+"📈 Conversion optimization: Maximize your ROI",1
+"📈 Optimisation conversion : Maximisez votre ROI",1
+"🎓 Certification programs: Industry-recognized credentials",1
+"🎓 Programmes certification : Références reconnues industrie",1
+"💻 E-learning platform: Learn at your own pace",1
+"💻 Plateforme e-learning : Apprenez à votre rythme",1
+"🔥 Hot stock picks: Expert recommendations",1
+"🔥 Actions chaudes : Recommandations d'experts",1
+"🌍 Global investment opportunities await",1
+"🌍 Opportunités d'investissement mondiales vous attendent",1
+"🎮 Unlock premium game modes today",1
+"🎮 Débloquez modes de jeu premium aujourd'hui",1
+"🔊 Ad-free music streaming: Upgrade now",1
+"🔊 Streaming musical sans pub : Mettez à niveau",1
+"📲 Mobile app exclusive features available",1
+"📲 Fonctionnalités exclusives app mobile disponibles",1
+"🌟 Become a VIP member: Exclusive perks",1
+"🌟 Devenez membre VIP : Avantages exclusifs",1
+"💡 Smart home starter kit: Transform your living",1
+"💡 Kit maison intelligente : Transformez votre vie",1
+"🚀 Startup accelerator program: Apply now",1
+"🚀 Programme accélérateur startup : Candidatez maintenant",1
+"🏆 Exclusive access to premium events",1
+"🏆 Accès exclusif aux événements premium",1
+"📊 Analytics suite: Unlock data insights",1
+"📊 Suite analytique : Libérez insights données",1
+"⭐ Five-star rated: Join satisfied customers",1
+"⭐ Noté cinq étoiles : Rejoignez clients satisfaits",1
+"🎯 Target marketing: Reach your audience better",1
+"🎯 Marketing ciblé : Atteignez mieux votre audience",1
+"💰 Investment advisor: Maximize your returns",1
+"💰 Conseiller investissement : Maximisez vos rendements",1
+"🔐 Security audit: Protect your business",1
+"🔐 Audit sécurité : Protégez votre entreprise",1
+"📱 App development: Bring your idea to life",1
+"📱 Développement app : Donnez vie à votre idée",1
+"🌐 Global marketplace: Expand your reach",1
+"🌐 Marché mondial : Étendez votre portée",1
+"🎪 Event management: Make it memorable",1
+"🎪 Gestion événements : Rendez-le mémorable",1
+"📈 SEO optimization: Boost your visibility",1
+"📈 Optimisation SEO : Boostez votre visibilité",1
+"💎 Luxury concierge service available",1
+"💎 Service conciergerie luxe disponible",1
+"🚁 Private helicopter tours: Book now",1
+"🚁 Tours hélicoptère privé : Réservez maintenant",1
+"🍷 Wine tasting experience: Premium selection",1
+"🍷 Dégustation vin : Sélection premium",1
+"🏖️ Exclusive resort: Paradise awaits",1
+"🏖️ Resort exclusif : Le paradis vous attend",1
+"🎨 Art investment: Beautiful and profitable",1
+"🎨 Investissement art : Beau et rentable",1
+"⚡ Electric vehicle charging: Future is here",1
+"⚡ Recharge véhicule électrique : L'avenir est là",1
+"🌱 Sustainable investing: Profit with purpose",1
+"🌱 Investissement durable : Profit avec objectif",1
+"🎬 Film production: Professional quality guaranteed",1
+"🎬 Production film : Qualité professionnelle garantie",1
+"📚 Online tutoring: One-on-one expert help",1
+"📚 Tutorat en ligne : Aide expert personnalisée",1
+"🏋️ Personal trainer: Achieve your fitness goals",1
+"🏋️ Entraîneur personnel : Atteignez objectifs forme",1
+"🍎 Nutrition coaching: Transform your health",1
+"🍎 Coaching nutrition : Transformez votre santé",1
+"🎵 Music production: Professional studio quality",1
+"🎵 Production musicale : Qualité studio professionnel",1
+"📸 Photography course: Capture perfect moments",1
+"📸 Cours photographie : Capturez moments parfaits",1
+"🚗 Luxury car rental: Drive in style",1
+"🚗 Location voiture luxe : Roulez avec style",1
+"✈️ Private jet charter: Travel like royalty",1
+"✈️ Affrètement jet privé : Voyagez comme royauté",1
+"🏠 Interior design: Transform your space",1
+"🏠 Design intérieur : Transformez votre espace",1
+"👗 Personal stylist: Look your absolute best",1
+"👗 Styliste personnel : Ayez votre meilleur look",1
+"🍰 Gourmet catering: Unforgettable dining experience",1
+"🍰 Traiteur gourmet : Expérience culinaire inoubliable",1
+"🎭 Theater tickets: Best seats available",1
+"🎭 Billets théâtre : Meilleures places disponibles",1
+"🏆 Championship training: Become a winner",1
+"🏆 Entraînement championnat : Devenez gagnant",1
+"🔬 Research consultation: Expert scientific advice",1
+"🔬 Consultation recherche : Conseil scientifique expert",1
+"🎪 Circus school: Learn amazing skills",1
+"🎪 École cirque : Apprenez compétences incroyables",1
+"🚀 Space tourism: Once in lifetime experience",1
+"🚀 Tourisme spatial : Expérience unique vie",1
+"💼 Executive protection: VIP security service",1
+"💼 Protection exécutive : Service sécurité VIP",1
+"🏰 Castle rental: Live like nobility",1
+"🏰 Location château : Vivez comme noblesse",1
+"⛵ Yacht charter: Luxury ocean adventure",1
+"⛵ Affrètement yacht : Aventure océan luxe",1
+"🎯 Archery lessons: Hit your target",1
+"🎯 Cours tir à l'arc : Atteignez votre cible",1
+"🥊 Boxing training: Unleash your power",1
+"🥊 Entraînement boxe : Libérez votre puissance",1
+"🧘 Meditation retreat: Find inner peace",1
+"🧘 Retraite méditation : Trouvez paix intérieure",1
+"🎨 Art therapy: Heal through creativity",1
+"🎨 Art thérapie : Guérissez par créativité",1
+"🌺 Spa day: Ultimate relaxation experience",1
+"🌺 Journée spa : Expérience relaxation ultime",1
+"🍫 Chocolate making: Sweet skills to master",1
+"🍫 Fabrication chocolat : Compétences sucrées à maîtriser",1
+"🎪 Magic lessons: Amaze your friends",1
+"🎪 Cours magie : Épatez vos amis",1
+"🦋 Butterfly garden: Nature's beauty at home",1
+"🦋 Jardin papillons : Beauté nature chez vous",1
+"🏔️ Mountain climbing: Conquer new heights",1
+"🏔️ Escalade montagne : Conquérez nouvelles hauteurs",1
+"🌊 Surfing lessons: Ride the perfect wave",1
+"🌊 Cours surf : Chevauchez vague parfaite",1
+"🎿 Ski instruction: Master the slopes",1
+"🎿 Instruction ski : Maîtrisez les pistes",1
+"🏄 Wakeboarding: Water sports adventure",1
+"🏄 Wakeboard : Aventure sports nautiques",1
+"🎳 Bowling league: Strike up new friendships",1
+"🎳 Ligue bowling : Nouez nouvelles amitiés",1
+"🎱 Pool lessons: Become a shark",1
+"🎱 Cours billard : Devenez requin",1
+"🎰 Casino night: Feel the excitement",1
+"🎰 Soirée casino : Ressentez excitation",1
+"🎪 Carnival games: Win amazing prizes",1
+"🎪 Jeux carnaval : Gagnez prix incroyables",1
+"🎨 Pottery class: Shape your creativity",1
+"🎨 Cours poterie : Façonnez votre créativité",1
+"🧶 Knitting workshop: Craft beautiful items",1
+"🧶 Atelier tricot : Créez objets magnifiques",1
+"📖 Writing workshop: Tell your story",1
+"📖 Atelier écriture : Racontez votre histoire",1
+"🎤 Singing lessons: Find your voice",1
+"🎤 Cours chant : Trouvez votre voix",1
+"🎸 Guitar mastery: Play like a pro",1
+"🎸 Maîtrise guitare : Jouez comme pro",1
+"🥁 Drumming class: Feel the rhythm",1
+"🥁 Cours batterie : Ressentez rythme",1
+"🎹 Piano lessons: Create beautiful melodies",1
+"🎹 Cours piano : Créez mélodies magnifiques",1
+"🎺 Trumpet training: Make some noise",1
+"🎺 Entraînement trompette : Faites du bruit",1
+"🎻 Violin virtuoso: Master classical music",1
+"🎻 Virtuose violon : Maîtrisez musique classique",1
+"🪘 Percussion workshop: Beat to your rhythm",1
+"🪘 Atelier percussion : Battez votre rythme",1
+"🎼 Music composition: Write your symphony",1
+"🎼 Composition musicale : Écrivez votre symphonie",1
+"🎧 DJ course: Mix like a pro",1
+"🎧 Cours DJ : Mixez comme pro",1
+"🎪 Acrobatics: Defy gravity with style",1
+"🎪 Acrobaties : Défiez gravité avec style",1
+"🤹 Juggling mastery: Keep everything in air",1
+"🤹 Maîtrise jonglage : Gardez tout en l'air",1
+"🎭 Acting class: Discover your inner performer",1
+"🎭 Cours théâtre : Découvrez artiste intérieur",1
+"🎬 Film making: Bring stories to life",1
+"🎬 Réalisation film : Donnez vie aux histoires",1
+"📹 Video editing: Professional post-production",1
+"📹 Montage vidéo : Post-production professionnelle",1

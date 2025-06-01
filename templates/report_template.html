@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GmailPilot - Sorting Report</title>
+    <style>
+        :root {
+            /* Light theme (default) */
+            --bg-gradient-1: #667eea;
+            --bg-gradient-2: #764ba2;
+            --card-bg: white;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #ecf0f1;
+            --stat-bg: #f8f9fa;
+            --error-bg: #fff5f5;
+            --error-border: #fadbd8;
+            --progress-bg: #ecf0f1;
+            --shadow: rgba(0,0,0,0.1);
+            --header-gradient-1: #2c3e50;
+            --header-gradient-2: #3498db;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme */
+            --bg-gradient-1: #1a1a2e;
+            --bg-gradient-2: #16213e;
+            --card-bg: #2d3748;
+            --text-primary: #e2e8f0;
+            --text-secondary: #a0aec0;
+            --border-color: #4a5568;
+            --stat-bg: #1a202c;
+            --error-bg: #2d1b1b;
+            --error-border: #4a2c2a;
+            --progress-bg: #4a5568;
+            --shadow: rgba(0,0,0,0.3);
+            --header-gradient-1: #1a202c;
+            --header-gradient-2: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 12px 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        .theme-toggle .icon {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover .icon {
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 20px 40px var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--header-gradient-1) 0%, var(--header-gradient-2) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header .date {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--stat-bg);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+            transition: all .2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+            background: #3498db;
+        }
+
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all .2s ease-in-out;
+        }
+
+        .stat-card:hover * {
+            color: white;
+        }
+
+        .stat-card.warning {
+            border-left-color: #f39c12;
+        }
+
+        .stat-card.warning:hover {
+            background: #f39c12;
+            color: white;
+        }
+
+        .stat-card.success {
+            border-left-color: #27ae60;
+        }
+
+        .stat-card.success:hover {
+            background: #27ae60;
+            color: white;
+        }
+
+        .stat-card.error {
+            border-left-color: #e74c3c;
+        }
+
+        .stat-card.error:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .error-list {
+            background: var(--error-bg);
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .error-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--error-border);
+        }
+
+        .error-item:last-child {
+            border-bottom: none;
+        }
+
+        .error-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .error-sender {
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 1.1em;
+        }
+
+        .error-subject {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .error-reason {
+            background: #ffeaa7;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: #f39c12;
+            font-weight: bold;
+            display: inline-block;
+            margin-block-end: 10px;
+        }
+
+        .error-action {
+            margin-block: 10px;
+        }
+
+        .error-scores {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .score {
+            background: var(--card-bg);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            border: 1px solid var(--border-color);
+        }
+
+        .score .label {
+            color: var(--text-secondary);
+            margin-right: 5px;
+        }
+
+        .score .value {
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .actions-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .action-item {
+            background: var(--stat-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .action-count {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .action-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .no-errors {
+            text-align: center;
+            padding: 40px;
+            color: #27ae60;
+            font-size: 1.1em;
+        }
+
+        .no-errors .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer {
+            background: var(--stat-bg);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .progress-bar {
+            background: var(--progress-bg);
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .error-header {
+                flex-direction: column;
+            }
+            
+            .error-scores {
+                flex-direction: column;
+            }
+            
+            .classification-reasons {
+                margin-top: 10px;
+                padding: 10px;
+            }
+            
+            .reasons-title {
+                font-size: 0.8em;
+            }
+            
+            .reason-item {
+                font-size: 0.8em;
+                padding-left: 14px;
+            }
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag.labelled {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .tag.kept {
+            background: #fef9e7;
+            color: #f39c12;
+        }
+
+        .confidence-indicator {
+            display: inline-block;
+            width: 60px;
+            height: 6px;
+            background: var(--progress-bg);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .confidence-high { background: #27ae60; }
+        .confidence-medium { background: #f39c12; }
+        .confidence-low { background: #e74c3c; }
+
+        .email-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .email-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .email-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .email-item.promotional {
+            border-left-color: #e74c3c;
+        }
+
+        .email-item.important {
+            border-left-color: #f39c12;
+        }
+
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .email-sender {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1em;
+        }
+
+        .email-subject {
+            color: var(--text-secondary);
+            font-size: 0.97em;
+            line-height: 1.4;
+        }
+
+        .classification-reasons {
+            margin-top: 12px;
+            padding: 12px;
+            background: var(--stat-bg);
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .reasons-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85em;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .reasons-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reason-item {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding: 6px 12px 6px 8px;
+            position: relative;
+            line-height: 1.4;
+            word-wrap: break-word;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 4px;
+            border-left: 3px solid transparent;
+        }
+
+        .reason-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #3498db;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Couleurs spécifiques selon le type de raison */
+        .reason-item[data-type="promotional"] {
+            border-left-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.08);
+        }
+
+        .reason-item[data-type="positive"] {
+            border-left-color: #27ae60;
+            background: rgba(39, 174, 96, 0.08);
+        }
+
+        .reason-item[data-type="warning"] {
+            border-left-color: #f39c12;
+            background: rgba(243, 156, 18, 0.08);
+        }
+
+        .reason-item[data-type="ai"] {
+            border-left-color: #9b59b6;
+            background: rgba(155, 89, 182, 0.08);
+        }
+
+        .reason-item[data-type="uncertain"] {
+            border-left-color: #95a5a6;
+            background: rgba(149, 165, 166, 0.08);
+        }
+
+        .reason-item[data-type="default"] {
+            border-left-color: #3498db;
+            background: rgba(52, 152, 219, 0.08);
+        }
+
+        .reason-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Styles pour le bouton "See all classified emails" */
+        .show-all-button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+
+        .show-all-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .show-all-button:active {
+            transform: translateY(0);
+        }
+
+        .show-all-button .icon {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .show-all-button.expanded .icon {
+            transform: rotate(180deg);
+        }
+
+        /* Section hidden by default */
+        .all-classified-emails {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .all-classified-emails.visible {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Styles for default reasons */
+        .default-reasons {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Style pour le message "See logs" */
+        .see-logs-message {
+            margin-top: 8px;
+            padding: 6px 10px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 4px;
+            font-size: 0.75em;
+            color: var(--text-secondary);
+            text-align: center;
+            font-style: italic;
+            border-left: 2px solid #3498db;
+        }
+
+        .see-logs-message .icon {
+            margin-right: 4px;
+            font-size: 0.9em;
+        }
+        
+        .score.calculated {
+            border-color: #9b59b6;
+            font-style: italic;
+        }
+
+        .score.no-scores {
+            background: #f8f9fa;
+            border: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .score.no-scores .icon {
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme toggle button -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <span class="icon" id="theme-icon">🌙</span>
+        <span id="theme-text">Dark</span>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📧 GmailPilot</h1>
+            <div class="date">Report generated on {{ report_date }}</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Summary Statistics -->
+            <div class="summary-grid">
+                <div class="stat-card success">
+                    <div class="number">{{ total_scanned }}</div>
+                    <div class="label">Emails analyzed</div>
+                </div>
+                
+                <div class="stat-card {{ 'warning' if total_labelled > 0 else 'success' }}">
+                    <div class="number">{{ total_labelled }}</div>
+                    <div class="label">Emails sorted</div>
+                </div>
+                
+                <div class="stat-card {{ 'error' if potential_errors|length > 0 else 'success' }}">
+                    <div class="number">{{ potential_errors|length }}</div>
+                    <div class="label">Potential errors</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="number">{{ accuracy_percentage }}%</div>
+                    <div class="label">Estimated accuracy</div>
+                </div>
+            </div>
+
+            <!-- Processing Efficiency -->
+            {% if total_scanned > 0 %}
+            {% set efficiency_percent = ((total_labelled / total_scanned) * 100)|round(1) %}
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">⚡</span>
+                    Sorting efficiency
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-width="{{ efficiency_percent }}"></div>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 1em; margin-top: 10px;">
+                    {{ efficiency_percent }}% of emails have been labelled
+                </p>
+            </div>
+            {% endif %}
+
+            <!-- Actions Summary -->
+            {% if actions_summary %}
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📊</span>
+                    Actions summary
+                </div>
+                <div class="actions-summary">
+                    {% for action, count in actions_summary.items() %}
+                    <div class="action-item">
+                        <div class="action-count">{{ count }}</div>
+                        <div class="action-label">{{ action }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Promotional Emails -->
+            {% if promotional_emails %}
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🏷️</span>
+                    Promotional emails ({{ promotional_emails|length }})
+                </div>
+                
+                <!-- Display first emails (limited to 5) -->
+                <div class="email-list">
+                    {% for email in promotional_emails[:5] %}
+                    <div class="email-item promotional">
+                        <div class="email-header">
+                            <div class="email-sender">{{ email.sender }}</div>
+                            <span class="tag labelled">labelled</span>
+                        </div>
+                        <div class="email-subject">{{ email.subject[:100] }}{% if email.subject|length > 100 %}...{% endif %}</div>
+                        
+                        <div class="classification-reasons">
+                            <div class="reasons-title">Decision based on :</div>
+                            <ul class="reasons-list">
+                                {% if email.reasons and email.reasons|length > 0 %}
+                                    {% for reason in email.reasons[:3] %}
+                                    <li class="reason-item">{{ reason }}</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <!-- Default simplified reasons -->
+                                    {% if 'unsubscribe' in email.subject.lower() or 'unsubscribe' in (email.content or '').lower() %}
+                                    <li class="reason-item default-reasons" data-type="promotional">🔗 Contains unsubscribe link</li>
+                                    {% endif %}
+                                    {% if 'sale' in email.subject.lower() or 'offer' in email.subject.lower() or 'discount' in email.subject.lower() or 'promo' in email.subject.lower() or 'deal' in email.subject.lower() or '%' in email.subject %}
+                                    <li class="reason-item default-reasons" data-type="promotional">💰 Contains promotional keywords</li>
+                                    {% endif %}
+                                    {% if email.sender and ('noreply' in email.sender.lower() or 'no-reply' in email.sender.lower() or 'marketing' in email.sender.lower() or 'newsletter' in email.sender.lower()) %}
+                                    <li class="reason-item default-reasons" data-type="promotional">📧 Marketing sender address</li>
+                                    {% endif %}
+                                    {% if not (email.reasons and email.reasons|length > 0) %}
+                                    <li class="reason-item default-reasons" data-type="ai">🤖 AI classification based on content analysis</li>
+                                    {% endif %}
+                                {% endif %}
+                            </ul>
+                            <div class="see-logs-message">
+                                <span class="icon">📋</span>
+                                See the logs for more detailed reasons
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Button to show all classified emails -->
+                {% if promotional_emails|length > 5 %}
+                <button class="show-all-button" onclick="toggleAllClassifiedEmails()" data-total-count="{{ promotional_emails|length }}">
+                    See all {{ promotional_emails|length }} classified emails
+                    <span class="icon">▼</span>
+                </button>
+                
+                <!-- Hidden section with all emails -->
+                <div class="all-classified-emails" id="allClassifiedEmails">
+                    <div class="email-list">
+                        {% for email in promotional_emails[5:] %}
+                        <div class="email-item promotional">
+                            <div class="email-header">
+                                <div class="email-sender">{{ email.sender }}</div>
+                                <span class="tag labelled">labelled</span>
+                            </div>
+                            <div class="email-subject">{{ email.subject[:100] }}{% if email.subject|length > 100 %}...{% endif %}</div>
+                            
+                            <div class="classification-reasons">
+                                <div class="reasons-title">Decision based on :</div>
+                                <ul class="reasons-list">
+                                    {% if email.reasons and email.reasons|length > 0 %}
+                                        {% for reason in email.reasons[:3] %}
+                                        <li class="reason-item">{{ reason }}</li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <!-- Default simplified reasons -->
+                                        {% if 'unsubscribe' in email.subject.lower() or 'unsubscribe' in (email.content or '').lower() %}
+                                        <li class="reason-item default-reasons" data-type="promotional">🔗 Contains unsubscribe link</li>
+                                        {% endif %}
+                                        {% if 'sale' in email.subject.lower() or 'offer' in email.subject.lower() or 'discount' in email.subject.lower() or 'promo' in email.subject.lower() or 'deal' in email.subject.lower() or '%' in email.subject %}
+                                        <li class="reason-item default-reasons" data-type="promotional">💰 Contains promotional keywords</li>
+                                        {% endif %}
+                                        {% if email.sender and ('noreply' in email.sender.lower() or 'no-reply' in email.sender.lower() or 'marketing' in email.sender.lower() or 'newsletter' in email.sender.lower()) %}
+                                        <li class="reason-item default-reasons" data-type="promotional">📧 Marketing sender address</li>
+                                        {% endif %}
+                                        {% if not (email.reasons and email.reasons|length > 0) %}
+                                        <li class="reason-item default-reasons" data-type="ai">🤖 AI classification based on content analysis</li>
+                                        {% endif %}
+                                    {% endif %}
+                                </ul>
+                                <div class="see-logs-message">
+                                    <span class="icon">📋</span>
+                                    See the logs for more detailed reasons
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- Important Emails -->
+            {% if important_emails %}
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">⭐</span>
+                    Important emails ({{ important_emails|length }})
+                </div>
+                
+                <!-- Display first important emails (limited to 5) -->
+                <div class="email-list">
+                    {% for email in important_emails[:5] %}
+                    <div class="email-item important">
+                        <div class="email-header">
+                            <div class="email-sender">{{ email.sender }}</div>
+                            <span class="tag kept">Kept</span>
+                        </div>
+                        <div class="email-subject">{{ email.subject[:100] }}{% if email.subject|length > 100 %}...{% endif %}</div>
+                        
+                        <div class="classification-reasons">
+                            <div class="reasons-title">Decision based on :</div>
+                            <ul class="reasons-list">
+                                {% if email.reasons and email.reasons|length > 0 %}
+                                    {% for reason in email.reasons[:3] %}
+                                    <li class="reason-item">{{ reason }}</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <!-- Default simplified reasons for important emails -->
+                                    {% if email.sender and ('bank' in email.sender.lower() or 'paypal' in email.sender.lower() or 'amazon' in email.sender.lower() or 'google' in email.sender.lower() or 'microsoft' in email.sender.lower() or 'apple' in email.sender.lower()) %}
+                                    <li class="reason-item default-reasons" data-type="positive">🏢 Trusted sender</li>
+                                    {% endif %}
+                                    {% if 'urgent' in email.subject.lower() or 'important' in email.subject.lower() or 'action required' in email.subject.lower() or 'verify' in email.subject.lower() or 'confirm' in email.subject.lower() %}
+                                    <li class="reason-item default-reasons" data-type="warning">⚠️ Contains urgent keywords</li>
+                                    {% endif %}
+                                    {% if email.sender and not ('noreply' in email.sender.lower() or 'no-reply' in email.sender.lower() or 'marketing' in email.sender.lower() or 'newsletter' in email.sender.lower()) %}
+                                    <li class="reason-item default-reasons" data-type="positive">👤 Personal sender address</li>
+                                    {% endif %}
+                                    {% if not (email.reasons and email.reasons|length > 0) %}
+                                    <li class="reason-item default-reasons" data-type="ai">🤖 AI classification based on content analysis</li>
+                                    {% endif %}
+                                {% endif %}
+                            </ul>
+                            <div class="see-logs-message">
+                                <span class="icon">📋</span>
+                                See the logs for more detailed reasons
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Button to show all important emails -->
+                {% if important_emails|length > 5 %}
+                <button class="show-all-button" onclick="toggleAllImportantEmails()" data-total-count="{{ important_emails|length }}">
+                    See all {{ important_emails|length }} important emails
+                    <span class="icon">▼</span>
+                </button>
+                
+                <!-- Hidden section with all important emails -->
+                <div class="all-classified-emails" id="allImportantEmails">
+                    <div class="email-list">
+                        {% for email in important_emails[5:] %}
+                        <div class="email-item important">
+                            <div class="email-header">
+                                <div class="email-sender">{{ email.sender }}</div>
+                                <span class="tag kept">Kept</span>
+                            </div>
+                            <div class="email-subject">{{ email.subject[:100] }}{% if email.subject|length > 100 %}...{% endif %}</div>
+                            
+                            <div class="classification-reasons">
+                                <div class="reasons-title">Decision based on :</div>
+                                <ul class="reasons-list">
+                                    {% if email.reasons and email.reasons|length > 0 %}
+                                        {% for reason in email.reasons[:3] %}
+                                        <li class="reason-item">{{ reason }}</li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <!-- Default simplified reasons for important emails -->
+                                        {% if email.sender and ('bank' in email.sender.lower() or 'paypal' in email.sender.lower() or 'amazon' in email.sender.lower() or 'google' in email.sender.lower() or 'microsoft' in email.sender.lower() or 'apple' in email.sender.lower()) %}
+                                        <li class="reason-item default-reasons" data-type="positive">🏢 Trusted sender</li>
+                                        {% endif %}
+                                        {% if 'urgent' in email.subject.lower() or 'important' in email.subject.lower() or 'action required' in email.subject.lower() or 'verify' in email.subject.lower() or 'confirm' in email.subject.lower() %}
+                                        <li class="reason-item default-reasons" data-type="warning">⚠️ Contains urgent keywords</li>
+                                        {% endif %}
+                                        {% if email.sender and not ('noreply' in email.sender.lower() or 'no-reply' in email.sender.lower() or 'marketing' in email.sender.lower() or 'newsletter' in email.sender.lower()) %}
+                                        <li class="reason-item default-reasons" data-type="positive">👤 Personal sender address</li>
+                                        {% endif %}
+                                        {% if not (email.reasons and email.reasons|length > 0) %}
+                                        <li class="reason-item default-reasons" data-type="ai">🤖 AI classification based on content analysis</li>
+                                        {% endif %}
+                                    {% endif %}
+                                </ul>
+                                <div class="see-logs-message">
+                                    <span class="icon">📋</span>
+                                    See the logs for more detailed reasons
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- Potential Errors -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">⚠️</span>
+                    Potential errors detected
+                </div>
+                
+                {% if potential_errors %}
+                <!-- Display of the first 3 errors -->
+                <div class="error-list">
+                    {% for error in potential_errors[:3] %}
+                    <div class="error-item">
+                        <div class="error-header">
+                            <div>
+                                <div class="error-sender">{{ error.sender }}</div>
+                                <div class="error-subject">{{ error.subject[:80] }}{% if error.subject|length > 80 %}...{% endif %}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="error-reason">{{ error.reason }}</div>
+                        <div class="error-action">
+                            <span class="tag {{ 'labelled' if error.action == 'labelled' else 'kept' }}">
+                                {{ 'Labelled' if error.action == 'labelled' else 'Kept in Inbox' }}
+                            </span>
+                        </div>
+                        
+                        <!-- Classification reasons -->
+                        {% if error.classification_reasons and error.classification_reasons|length > 0 %}
+                        <div class="classification-reasons">
+                            <div class="reasons-title">
+                                Decision based on :
+                            </div>
+                            <ul class="reasons-list">
+                                {% for reason in error.classification_reasons[:5] %}
+                                <li class="reason-item" 
+                                    data-type="{% if '🏷️' in reason %}promotional{% elif '✅' in reason %}positive{% elif '⚠️' in reason %}warning{% elif '🤖' in reason %}ai{% elif '❓' in reason %}uncertain{% else %}default{% endif %}">
+                                    {{ reason }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="see-logs-message">
+                                <span class="icon">📋</span>
+                                See the logs for more detailed reasons
+                            </div>
+                        </div>
+                        {% elif error.action == 'labelled' %}
+                        <div class="classification-reasons">
+                            <div class="reasons-title">Decision based on :</div>
+                            <ul class="reasons-list">
+                                <li class="reason-item" data-type="default">
+                                    📋 Classified based on content analysis
+                                </li>
+                            </ul>
+                            <div class="see-logs-message">
+                                <span class="icon">📋</span>
+                                See the logs for more detailed reasons
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="error-scores">
+                            {% set has_any_score = false %}
+                            
+                            {% if error.promo_score is defined and error.promo_score is not none %}
+                            {% set has_any_score = true %}
+                            {% set promo_width = (error.promo_score * 100)|round %}
+                            {% set promo_class = 'confidence-high' if error.promo_score > 0.7 else ('confidence-medium' if error.promo_score > 0.4 else 'confidence-low') %}
+                            <div class="score">
+                                <span class="label">Promo score :</span>
+                                <span class="value">{{ "%.2f"|format(error.promo_score) }}</span>
+                                <div class="confidence-indicator">
+                                    <div class="confidence-fill {{ promo_class }}" data-width="{{ promo_width }}"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if error.importance_score is defined and error.importance_score is not none %}
+                            {% set has_any_score = true %}
+                            {# Normalize importance score: if > 1, it's on 0-10 scale, otherwise 0-1 #}
+                            {% set normalized_importance = error.importance_score / 10.0 if error.importance_score > 1 else error.importance_score %}
+                            {% set importance_width = (normalized_importance * 100)|round %}
+                            {% set importance_class = 'confidence-high' if normalized_importance > 0.7 else ('confidence-medium' if normalized_importance > 0.4 else 'confidence-low') %}
+                            <div class="score">
+                                <span class="label">Importance score :</span>
+                                <span class="value">{{ "%.2f"|format(normalized_importance) }}</span>
+                                <div class="confidence-indicator">
+                                    <div class="confidence-fill {{ importance_class }}" data-width="{{ importance_width }}"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if error.sbert_promo_score is defined and error.sbert_promo_score is not none %}
+                            {% set has_any_score = true %}
+                            {% set sbert_promo_width = (error.sbert_promo_score * 100)|round %}
+                            {% set sbert_promo_class = 'confidence-high' if error.sbert_promo_score > 0.7 else ('confidence-medium' if error.sbert_promo_score > 0.4 else 'confidence-low') %}
+                            <div class="score">
+                                <span class="label">AI promo score :</span>
+                                <span class="value">{{ "%.2f"|format(error.sbert_promo_score) }}</span>
+                                <div class="confidence-indicator">
+                                    <div class="confidence-fill {{ sbert_promo_class }}" data-width="{{ sbert_promo_width }}"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if error.sbert_importance_score is defined and error.sbert_importance_score is not none %}
+                            {% set has_any_score = true %}
+                            {% set sbert_importance_width = (error.sbert_importance_score * 100)|round %}
+                            {% set sbert_importance_class = 'confidence-high' if error.sbert_importance_score > 0.7 else ('confidence-medium' if error.sbert_importance_score > 0.4 else 'confidence-low') %}
+                            <div class="score">
+                                <span class="label">AI importance score :</span>
+                                <span class="value">{{ "%.2f"|format(error.sbert_importance_score) }}</span>
+                                <div class="confidence-indicator">
+                                    <div class="confidence-fill {{ sbert_importance_class }}" data-width="{{ sbert_importance_width }}"></div>
+                                </div>
+                            </div>
+                            {% elif error.sbert_promo_score is defined and error.sbert_promo_score is not none %}
+                            {% set has_any_score = true %}
+                            {% set calculated_importance = 1 - error.sbert_promo_score %}
+                            {% set calc_importance_width = (calculated_importance * 100)|round %}
+                            {% set calc_importance_class = 'confidence-high' if calculated_importance > 0.7 else ('confidence-medium' if calculated_importance > 0.4 else 'confidence-low') %}
+                            <div class="score calculated">
+                                <span class="label">AI importance score (calculated) :</span>
+                                <span class="value">{{ "%.2f"|format(calculated_importance) }}</span>
+                                <div class="confidence-indicator">
+                                    <div class="confidence-fill {{ calc_importance_class }}" data-width="{{ calc_importance_width }}"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if not has_any_score %}
+                            <div class="score no-scores">
+                                <span class="icon">📊</span> No detailed scores available - Check logs for classification details
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Button to show all potential errors -->
+                {% if potential_errors|length > 3 %}
+                <button class="show-all-button" onclick="toggleAllPotentialErrors()" data-total-count="{{ potential_errors|length }}">
+                    See all {{ potential_errors|length }} potential errors
+                    <span class="icon">▼</span>
+                </button>
+                
+                <!-- Hidden section with all errors -->
+                <div class="all-classified-emails" id="allPotentialErrors">
+                    <div class="error-list">
+                        {% for error in potential_errors[3:] %}
+                        <div class="error-item">
+                            <div class="error-header">
+                                <div>
+                                    <div class="error-sender">{{ error.sender }}</div>
+                                    <div class="error-subject">{{ error.subject[:80] }}{% if error.subject|length > 80 %}...{% endif %}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="error-reason">{{ error.reason }}</div>
+                            <div class="error-action">
+                                <span class="tag {{ 'labelled' if error.action == 'labelled' else 'kept' }}">
+                                    {{ 'Labelled' if error.action == 'labelled' else 'Kept in Inbox' }}
+                                </span>
+                            </div>
+                            
+                            <!-- Classification reasons -->
+                            {% if error.classification_reasons and error.classification_reasons|length > 0 %}
+                            <div class="classification-reasons">
+                                <div class="reasons-title">
+                                    Decision based on :
+                                </div>
+                                <ul class="reasons-list">
+                                    {% for reason in error.classification_reasons[:5] %}
+                                    <li class="reason-item" 
+                                        data-type="{% if '🏷️' in reason %}promotional{% elif '✅' in reason %}positive{% elif '⚠️' in reason %}warning{% elif '🤖' in reason %}ai{% elif '❓' in reason %}uncertain{% else %}default{% endif %}">
+                                        {{ reason }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="see-logs-message">
+                                    <span class="icon">📋</span>
+                                    See the logs for more detailed reasons
+                                </div>
+                            </div>
+                            {% elif error.action == 'labelled' %}
+                            <div class="classification-reasons">
+                                <div class="reasons-title">Decision based on :</div>
+                                <ul class="reasons-list">
+                                    <li class="reason-item" data-type="default">
+                                        📋 Classified based on content analysis
+                                    </li>
+                                </ul>
+                                <div class="see-logs-message">
+                                    <span class="icon">📋</span>
+                                    See the logs for more detailed reasons
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <div class="error-scores">
+                                {% set has_any_score = false %}
+                                
+                                {% if error.promo_score is defined and error.promo_score is not none %}
+                                {% set has_any_score = true %}
+                                {% set promo_width = (error.promo_score * 100)|round %}
+                                {% set promo_class = 'confidence-high' if error.promo_score > 0.7 else ('confidence-medium' if error.promo_score > 0.4 else 'confidence-low') %}
+                                <div class="score">
+                                    <span class="label">Promo score :</span>
+                                    <span class="value">{{ "%.2f"|format(error.promo_score) }}</span>
+                                    <div class="confidence-indicator">
+                                        <div class="confidence-fill {{ promo_class }}" data-width="{{ promo_width }}"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                
+                                {% if error.importance_score is defined and error.importance_score is not none %}
+                                {% set has_any_score = true %}
+                                {# Normalize importance score: if > 1, it's on 0-10 scale, otherwise 0-1 #}
+                                {% set normalized_importance = error.importance_score / 10.0 if error.importance_score > 1 else error.importance_score %}
+                                {% set importance_width = (normalized_importance * 100)|round %}
+                                {% set importance_class = 'confidence-high' if normalized_importance > 0.7 else ('confidence-medium' if normalized_importance > 0.4 else 'confidence-low') %}
+                                <div class="score">
+                                    <span class="label">Importance score :</span>
+                                    <span class="value">{{ "%.2f"|format(normalized_importance) }}</span>
+                                    <div class="confidence-indicator">
+                                        <div class="confidence-fill {{ importance_class }}" data-width="{{ importance_width }}"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                
+                                {% if error.sbert_promo_score is defined and error.sbert_promo_score is not none %}
+                                {% set has_any_score = true %}
+                                {% set sbert_promo_width = (error.sbert_promo_score * 100)|round %}
+                                {% set sbert_promo_class = 'confidence-high' if error.sbert_promo_score > 0.7 else ('confidence-medium' if error.sbert_promo_score > 0.4 else 'confidence-low') %}
+                                <div class="score">
+                                    <span class="label">AI promo score :</span>
+                                    <span class="value">{{ "%.2f"|format(error.sbert_promo_score) }}</span>
+                                    <div class="confidence-indicator">
+                                        <div class="confidence-fill {{ sbert_promo_class }}" data-width="{{ sbert_promo_width }}"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                
+                                {% if error.sbert_importance_score is defined and error.sbert_importance_score is not none %}
+                                {% set has_any_score = true %}
+                                {% set sbert_importance_width = (error.sbert_importance_score * 100)|round %}
+                                {% set sbert_importance_class = 'confidence-high' if error.sbert_importance_score > 0.7 else ('confidence-medium' if error.sbert_importance_score > 0.4 else 'confidence-low') %}
+                                <div class="score">
+                                    <span class="label">AI importance score :</span>
+                                    <span class="value">{{ "%.2f"|format(error.sbert_importance_score) }}</span>
+                                    <div class="confidence-indicator">
+                                        <div class="confidence-fill {{ sbert_importance_class }}" data-width="{{ sbert_importance_width }}"></div>
+                                    </div>
+                                </div>
+                                {% elif error.sbert_promo_score is defined and error.sbert_promo_score is not none %}
+                                {% set has_any_score = true %}
+                                {% set calculated_importance = 1 - error.sbert_promo_score %}
+                                {% set calc_importance_width = (calculated_importance * 100)|round %}
+                                {% set calc_importance_class = 'confidence-high' if calculated_importance > 0.7 else ('confidence-medium' if calculated_importance > 0.4 else 'confidence-low') %}
+                                <div class="score calculated">
+                                    <span class="label">AI importance score (calculated) :</span>
+                                    <span class="value">{{ "%.2f"|format(calculated_importance) }}</span>
+                                    <div class="confidence-indicator">
+                                        <div class="confidence-fill {{ calc_importance_class }}" data-width="{{ calc_importance_width }}"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                
+                                {% if not has_any_score %}
+                                <div class="score no-scores">
+                                    <span class="icon">📊</span> No detailed scores available - Check logs for classification details
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="no-errors">
+                    <span class="icon">✅</span>
+                    <div>No potential errors detected !</div>
+                    <div style="font-size: 0.9em; margin-top: 10px; color: var(--text-secondary);">
+                        All emails appear to have been classified correctly.
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Top Domains -->
+            {% if top_domains %}
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🌐</span>
+                    Most frequent domains
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    {% for domain, count in top_domains %}
+                    <div style="background: var(--stat-bg); padding: 15px; border-radius: 8px; text-align: center;">
+                        <div style="font-weight: bold; color: var(--text-primary);">{{ domain }}</div>
+                        <div style="color: var(--text-secondary); font-size: 0.9em;">{{ count }} emails</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Report generated by GmailPilot •
+               Processing time: {{ processing_time if processing_time else 'N/A' }}
+            </p>
+            {% if dry_run %}
+            <p style="color: #f39c12; font-weight: bold; margin-top: 10px;">
+                🧪 Simulation mode - No changes were made to your mailbox
+            </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Theme management
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                // Switch to light theme
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+                localStorage.setItem('theme', 'light');
+            } else {
+                // Switch to dark theme
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme on page load
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
+        }
+
+        // Apply server-calculated widths to avoid CSS linter errors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme
+            loadTheme();
+            
+            // Apply progress bar widths
+            document.querySelectorAll('[data-width]').forEach(function(el) {
+                el.style.width = el.getAttribute('data-width') + '%';
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // When the user clicks on the "Emails sorted" card, scroll to the section of sorted emails (promotional_emails)
+            const sortedCard = document.querySelector('.stat-card.warning');
+            if (sortedCard) {
+                sortedCard.addEventListener('click', function() {
+                    var promoSection = document.querySelector('.section-title .icon[aria-label="🏷️"], .section-title .icon:not([aria-label])');
+                    if (promoSection) {
+                        promoSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+                    }
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // When the user clicks on the "Emails errors" card, scroll to the section of potential errors
+            const errorsCard = document.querySelector('.stat-card.error');
+            if (errorsCard) {
+                errorsCard.addEventListener('click', function() {
+                    // Look specifically for the potential errors section with ⚠️ icon
+                    var errorsSection = document.querySelector('.section-title .icon');
+                    var errorsSections = document.querySelectorAll('.section-title');
+                    
+                    // Find the section with "Potential errors detected" or ⚠️ icon
+                    for (let section of errorsSections) {
+                        if (section.textContent.includes('Potential errors detected') || 
+                            section.querySelector('.icon')?.textContent === '⚠️') {
+                            section.scrollIntoView({behavior: 'smooth', block: 'start'});
+                            break;
+                        }
+                    }
+                });
+            }
+        });
+
+        // Fonction pour afficher/masquer tous les emails classifiés
+        function toggleAllClassifiedEmails() {
+            const section = document.getElementById('allClassifiedEmails');
+            const button = document.querySelector('button[onclick="toggleAllClassifiedEmails()"]');
+            const icon = button.querySelector('.icon');
+            
+            if (section.classList.contains('visible')) {
+                section.classList.remove('visible');
+                button.innerHTML = `See all ${button.getAttribute('data-total-count')} classified emails <span class="icon">▼</span>`;
+                button.classList.remove('expanded');
+            } else {
+                section.classList.add('visible');
+                button.innerHTML = `Hide classified emails <span class="icon">▲</span>`;
+                button.classList.add('expanded');
+            }
+        }
+
+        // Fonction pour afficher/masquer tous les emails importants
+        function toggleAllImportantEmails() {
+            const section = document.getElementById('allImportantEmails');
+            const button = document.querySelector('button[onclick="toggleAllImportantEmails()"]');
+            const icon = button.querySelector('.icon');
+            
+            if (section.classList.contains('visible')) {
+                section.classList.remove('visible');
+                button.innerHTML = `See all ${button.getAttribute('data-total-count')} important emails <span class="icon">▼</span>`;
+                button.classList.remove('expanded');
+            } else {
+                section.classList.add('visible');
+                button.innerHTML = `Hide important emails <span class="icon">▲</span>`;
+                button.classList.add('expanded');
+            }
+        }
+
+        // Fonction pour afficher/masquer toutes les erreurs potentielles
+        function toggleAllPotentialErrors() {
+            const section = document.getElementById('allPotentialErrors');
+            const button = document.querySelector('button[onclick="toggleAllPotentialErrors()"]');
+            const icon = button.querySelector('.icon');
+            
+            if (section.classList.contains('visible')) {
+                section.classList.remove('visible');
+                button.innerHTML = `See all ${button.getAttribute('data-total-count')} potential errors <span class="icon">▼</span>`;
+                button.classList.remove('expanded');
+            } else {
+                section.classList.add('visible');
+                button.innerHTML = `Hide potential errors <span class="icon">▲</span>`;
+                button.classList.add('expanded');
+            }
+        }
+        
+    </script>
+</body>
+</html> 

@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+credentials.json
+token.json
+/models/
+/data/*.json
+/logs/*
+IMPROVEMENTS.md
