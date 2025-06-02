@@ -13,6 +13,7 @@
 *🇫🇷 [Version française disponible ici](README_FR.md)*
 
 <div align="center">
+  <img src="assets/linux-preview.png" width="65%" alt="Linux Interface">
   <p>
     <img src="assets/light-preview-1.png" width="45%" alt="Light Interface">
     <img src="assets/dark-preview-1.png" width="45%" alt="Dark Interface">
