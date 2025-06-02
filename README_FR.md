@@ -13,6 +13,7 @@
 *🌍 [English version available here](README.md)*
 
 <div align="center">
+  <img src="assets/linux-preview.png" width="65%" alt="Linux Interface">
   <p>
     <img src="assets/light-preview-1.png" width="45%" alt="Interface claire">
     <img src="assets/dark-preview-1.png" width="45%" alt="Interface sombre">
