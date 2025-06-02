@@ -168,11 +168,17 @@ pip install -r requirements.txt
 git clone https://github.com/0xMR007/GmailPilot.git
 cd GmailPilot
 
-# Install dependencies
+# Create and activate a virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate # Linux/Mac
+# or
+.\venv\Scripts\activate # Windows
+
+# Install dependencies inside the virtual environment
 pip install -r requirements.txt
 
 # Place your credentials file
-# Copy credentials.json to project root
+# Copy credentials.json to the project root directory
 ```
 
 ### **First Run**
@@ -304,6 +310,17 @@ This dataset helps the SBERT model better understand:
 **Installation:**
 - Ensure you have Python 3.8+ and at least 4GB RAM
 - Verify that `credentials.json` is in the root folder
+- `OSError: [Errno 28] No space left on device` : Check your disk space
+  - `df -h` to check disk space
+  Cause: Some dependencies (like nvidia_nccl_cu12) are very large (~200MB) and can fill up the temporary /tmp partition during installation.
+  Solution : Add a swap partition or increase the size of the /tmp partition. OR install using **CPU only** of PyTorch :
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+  ```
+  Then install the rest of the requirements without pulling heavy dependencies again :
+  ```bash
+  pip install -r requirements.txt --no-deps	
+  ```
 
 **Performance:**
 - Adjust `MAX_RESULTS` to process fewer emails at once

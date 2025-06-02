@@ -340,6 +340,15 @@ Ce dataset permet au modèle SBERT de mieux comprendre :
 **Installation :**
 - Assurez-vous d'avoir Python 3.8+ et au moins 4GB de RAM
 - Vérifiez que `credentials.json` se trouve bien dans le dossier racine
+- `OSError: [Errno 28] Aucun espace disque disponible sur le périphérique` : Vérifiez votre espace disque
+  - `df -h` pour vérifier l'espace disque
+  Cause : Certaines dépendances (comme nvidia_nccl_cu12) sont très lourdes (~200MB) et peuvent remplir le partition temporaire /tmp lors de l'installation.
+  Solution : Ajoutez une partition swap ou augmentez la taille de la partition /tmp. OU installer en utilisant la version **CPU** de PyTorch :
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+  ```
+  Ensuite, installez les autres dépendances sans récupérer à nouveau les dépendances lourdes :
+  ```bash
 
 **Performance :**
 - Ajustez `MAX_RESULTS` pour traiter moins d'emails à la fois
