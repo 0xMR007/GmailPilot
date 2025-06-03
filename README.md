@@ -45,6 +45,13 @@
 
 GmailPilot uses **SBERT artificial intelligence** to automatically identify promotional emails in your Gmail inbox and organize them for you. No more manual sorting needed !
 
+The goal of this project is to allow anyone to sort their emails automatically and efficiently, but also to improve the Gmail sorting algorithm.
+
+That's right ! Gmail already has a sorting algorithm, and by using GmailPilot, you help organize your emails consistently.
+By sorting emails with specific labels, you create patterns that Gmail may recognize for its future automatic classifications.
+
+I recommend you to use the label "PROMOTIONS" of Gmail but it should work with any label you want.
+
 **In practice :**
 - ⚡ **Fast analysis** : Process hundreds of emails in minutes
 - 🤖 **Advanced AI** : Uses SBERT to understand email content semantically

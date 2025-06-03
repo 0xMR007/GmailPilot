@@ -50,6 +50,8 @@ Le but de ce projet est de permettre à n'importe qui de trier ses emails de fa�
 Et oui ! Gmail contient déjà un algorithme de tri, et en utilisant GmailPilot, vous aidez à organiser vos emails de façon cohérente.
 À force de trier les emails avec des labels spécifiques, vous créez des motifs que Gmail peut potentiellement reconnaître pour ses futurs classements automatiques.
 
+Je recommande d'utiliser le label "PROMOTIONS" de Gmail mais ça devrait fonctionner avec n'importe quel label Gmail de votre choix.
+
 **En pratique :**
 - ⚡ **Analyse rapide** : Traite des centaines d'emails en quelques minutes
 - 🤖 **IA avancée** : Utilise SBERT pour comprendre le contenu des emails
